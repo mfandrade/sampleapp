@@ -17,7 +17,7 @@ public class ClientFormDTO {
   private Instant createdAt;
   private Instant updatedAt;
 
-  public Client convert() {
+  public Client toEntity() {
     Client client = new Client();
     client.setCod(cod);
     client.setName(name);

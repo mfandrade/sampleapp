@@ -31,13 +31,13 @@ public class ClientController {
   @GetMapping
   public List<ClientDTO> list() {
     List<Client> clients = clientRepository.findAll();
-    return ClientDTO.convert(clients);
+    return ClientDTO.toDTO(clients);
   }
 
   @Transactional
   @PostMapping
   public ClientDTO save(@RequestBody ClientFormDTO form) {
-    Client client = form.convert();
+    Client client = form.toEntity();
     clientRepository.save(client);
     return new ClientDTO(client);
   }

@@ -21,7 +21,7 @@ public class ClientDTO {
     age = client.getAge();
   }
 
-  public static List<ClientDTO> convert(List<Client> clients) {
+  public static List<ClientDTO> toDTO(List<Client> clients) {
     List<ClientDTO> list = new ArrayList<ClientDTO>();
     for (Client client : clients) {
       list.add(new ClientDTO(client));
