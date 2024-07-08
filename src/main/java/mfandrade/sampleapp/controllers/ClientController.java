@@ -4,33 +4,32 @@ import java.time.Instant;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.RestController;
 
 import jakarta.transaction.Transactional;
 import mfandrade.sampleapp.entities.Client;
 import mfandrade.sampleapp.repositories.ClientRepository;
 
-@Controller
+@RestController
+@RequestMapping("/clients")
 public class ClientController {
 
   @Autowired
   private ClientRepository clientRepository;
 
-  @ResponseBody
-  @RequestMapping("/clients")
   public List<Client> list() {
     List<Client> clients = clientRepository.findAll();
     return clients;
   }
 
-  @ResponseBody
   @Transactional
-  @RequestMapping(path = "/clients", method = RequestMethod.POST)
+  @PostMapping
   public void save(@RequestBody Client data) {
     Instant now = Instant.now();
     data.setCreatedAt(now);
@@ -38,17 +37,15 @@ public class ClientController {
     clientRepository.save(data);
   }
 
-  @ResponseBody
   @Transactional
-  @RequestMapping(path = "/clients", method = RequestMethod.PUT)
+  @PutMapping
   public void update(@RequestBody Client data) {
     data.setUpdatedAt(Instant.now());
     clientRepository.save(data);
   }
 
-  @ResponseBody
   @Transactional
-  @RequestMapping(path = "/clients/{cod}", method = RequestMethod.DELETE)
+  @DeleteMapping("/{cod}")
   public void delete(@PathVariable Long cod) {
     clientRepository.deleteById(cod);
   }
