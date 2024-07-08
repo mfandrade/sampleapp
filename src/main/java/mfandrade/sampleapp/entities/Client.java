@@ -9,12 +9,10 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Temporal;
 import jakarta.persistence.TemporalType;
-import lombok.AllArgsConstructor;
 import lombok.Data;
 
 @Entity
 @Data
-@AllArgsConstructor
 public class Client {
 
   @Id
@@ -29,4 +27,20 @@ public class Client {
   private Instant createdAt;
   @Temporal(TemporalType.TIMESTAMP)
   private Instant updatedAt;
+
+  public Client() {
+    setCreatedAt(Instant.now());
+    setUpdatedAt(Instant.now());
+  }
+
+  public Client(String name, String cpf) {
+    this();
+    setName(name);
+    setCpf(cpf);
+  }
+
+  public Client(String name, String cpf, Integer age) {
+    this(name, cpf);
+    setAge(age);
+  }
 }
