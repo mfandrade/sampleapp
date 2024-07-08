@@ -20,7 +20,7 @@ public class Client {
   private Long cod;
   @Column(nullable = false)
   private String name;
-  @Column(nullable = false, unique = true)
+  @Column(nullable = false, unique = true, length = 11)
   private String cpf;
   private Integer age;
   @Temporal(TemporalType.TIMESTAMP)
