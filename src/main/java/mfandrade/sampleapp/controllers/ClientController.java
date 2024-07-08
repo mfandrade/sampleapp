@@ -21,7 +21,7 @@ import mfandrade.sampleapp.entities.Client;
 import mfandrade.sampleapp.repositories.ClientRepository;
 
 @RestController
-@RequestMapping("/clients")
+@RequestMapping("/v1/api/clients")
 public class ClientController {
 
   @Autowired
