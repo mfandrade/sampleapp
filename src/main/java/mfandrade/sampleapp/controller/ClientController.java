@@ -1,4 +1,4 @@
-package mfandrade.sampleapp.controllers;
+package mfandrade.sampleapp.controller;
 
 import java.util.List;
 import java.util.NoSuchElementException;
@@ -6,6 +6,7 @@ import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
@@ -14,11 +15,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import jakarta.transaction.Transactional;
-import mfandrade.sampleapp.controllers.dto.ClientDTO;
-import mfandrade.sampleapp.controllers.dto.ClientFormDTO;
-import mfandrade.sampleapp.controllers.dto.ClientUpdateFormDTO;
-import mfandrade.sampleapp.entities.Client;
-import mfandrade.sampleapp.repositories.ClientRepository;
+import mfandrade.sampleapp.controller.dto.ClientDTO;
+import mfandrade.sampleapp.controller.dto.ClientFormDTO;
+import mfandrade.sampleapp.controller.dto.ClientUpdateFormDTO;
+import mfandrade.sampleapp.dao.ClientRepository;
+import mfandrade.sampleapp.entity.Client;
 
 @RestController
 @RequestMapping("/v1/api/clients")
@@ -27,6 +28,7 @@ public class ClientController {
   @Autowired
   private ClientRepository clientRepository;
 
+  @GetMapping
   public List<ClientDTO> list() {
     List<Client> clients = clientRepository.findAll();
     return ClientDTO.convert(clients);

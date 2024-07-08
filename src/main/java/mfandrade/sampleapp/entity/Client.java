@@ -1,4 +1,4 @@
-package mfandrade.sampleapp.entities;
+package mfandrade.sampleapp.entity;
 
 import java.time.Instant;
 

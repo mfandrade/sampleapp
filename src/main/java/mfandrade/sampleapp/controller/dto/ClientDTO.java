@@ -1,10 +1,10 @@
-package mfandrade.sampleapp.controllers.dto;
+package mfandrade.sampleapp.controller.dto;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import lombok.Getter;
-import mfandrade.sampleapp.entities.Client;
+import mfandrade.sampleapp.entity.Client;
 
 @Getter
 public class ClientDTO {

@@ -1,8 +1,8 @@
-package mfandrade.sampleapp.controllers.dto;
+package mfandrade.sampleapp.controller.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
-import mfandrade.sampleapp.entities.Client;
+import mfandrade.sampleapp.entity.Client;
 
 @Getter
 @AllArgsConstructor
