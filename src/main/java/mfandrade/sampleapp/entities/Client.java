@@ -29,8 +29,9 @@ public class Client {
   private Instant updatedAt;
 
   public Client() {
-    setCreatedAt(Instant.now());
-    setUpdatedAt(Instant.now());
+    Instant now = Instant.now();
+    setCreatedAt(now);
+    setUpdatedAt(now);
   }
 
   public Client(String name, String cpf) {

@@ -32,8 +32,9 @@ public class ClientController {
   @Transactional
   @RequestMapping(path = "/clients", method = RequestMethod.POST)
   public void save(@RequestBody Client data) {
-    data.setCreatedAt(Instant.now());
-    data.setUpdatedAt(Instant.now());
+    Instant now = Instant.now();
+    data.setCreatedAt(now);
+    data.setUpdatedAt(now);
     clientRepository.save(data);
   }
 
