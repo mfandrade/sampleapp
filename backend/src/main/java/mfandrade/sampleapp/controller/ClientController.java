@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.CrossOrigin;
 
 import jakarta.transaction.Transactional;
 import mfandrade.sampleapp.controller.dto.ClientDTO;
@@ -23,6 +24,7 @@ import mfandrade.sampleapp.entity.Client;
 
 @RestController
 @RequestMapping("/v1/api/clients")
+@CrossOrigin(origins = "http://localhost:3000") // URL do frontend
 public class ClientController {
 
   @Autowired
