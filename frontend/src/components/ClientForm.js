@@ -17,7 +17,7 @@ const ClientForm = () => {
           setCpf(response.data.cpf);
           setAge(response.data.age);
         })
-        .catch(error => console.error('Error fetching client:', error));
+        .catch(error => console.error('Erro ao listar os clientes:', error));
     }
   }, [id]);
 
@@ -28,17 +28,17 @@ const ClientForm = () => {
     if (id) {
       updateClient(id, client)
         .then(() => navigate('/'))
-        .catch(error => console.error('Error updating client:', error));
+        .catch(error => console.error('Erro ao atualizar o cliente:', error));
     } else {
       createClient(client)
         .then(() => navigate('/'))
-        .catch(error => console.error('Error creating client:', error));
+        .catch(error => console.error('Erro ao adicionar novo cliente:', error));
     }
   };
 
   return (
     <div className="container">
-      <h2>{id ? 'Editar Cliente' : 'Novo Cliente'}</h2>
+      <h2>{id ? 'Editar Cliente' : 'Adicionar Novo Cliente'}</h2>
       <form onSubmit={handleSubmit}>
         <div className="mb-3">
           <label htmlFor="name" className="form-label">Nome</label>

@@ -21,7 +21,7 @@ const ClientList = () => {
 
   return (
     <div className="container">
-      <h2>Client List</h2>
+      <h2>Lista de Clientes</h2>
       <Link to="/add" className="btn btn-primary mb-2">Adicionar Novo Cliente</Link>
       <table className="table">
         <thead>
@@ -41,7 +41,7 @@ const ClientList = () => {
               <td>{client.cpf}</td>
               <td>{client.age}</td>
               <td>
-                <Link to={`/edit/${client.cod}`} className="btn btn-warning btn-sm me-2">Edit</Link>
+                <Link to={`/edit/${client.cod}`} className="btn btn-warning btn-sm me-2">Editar</Link>
                 <button onClick={() => handleDelete(client.cod)} className="btn btn-danger btn-sm">Deletar</button>
               </td>
             </tr>
