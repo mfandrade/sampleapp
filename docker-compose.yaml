@@ -1,0 +1,23 @@
+services:
+  backend:
+    build:
+      context: ./backend
+    container_name: spring-boot-backend
+    image: sampleapp
+    ports:
+      - "8080:8080"
+    networks:
+      - appnetwork
+
+  frontend:
+    build:
+      context: ./frontend
+    container_name: react-frontend
+    ports:
+      - "3000:80"
+    networks:
+      - appnetwork
+
+networks:
+  appnetwork:
+    driver: bridge
