@@ -79,6 +79,8 @@
 							<artifactId>lombok</artifactId>
 						</exclude>
 					</excludes>
+          <mainClass>mfandrade.sampleapp.Main</mainClass>
+          <finalName>sampleapp</finalName>
 				</configuration>
 			</plugin>
 		</plugins>
